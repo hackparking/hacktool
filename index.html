@@ -147,9 +147,22 @@
         </div>
       </div>
     </div>
+
+    <!-- 閲覧者数表示部分 -->
+    <div class="mt-4 p-4 bg-gray-50 rounded-md">
+      <h3 class="font-medium text-gray-700">現在の閲覧者数: <span id="viewerCount">0</span></h3>
+    </div>
   </div>
 
   <script>
+    let viewerCount = 0;
+
+    // ページが読み込まれるたびにカウンターを増加
+    window.onload = function() {
+      viewerCount++;
+      document.getElementById('viewerCount').textContent = viewerCount;
+    };
+
     document.getElementById('sendButton').addEventListener('click', async () => {
       const webhookUrl = document.getElementById('webhookUrl').value.trim();
       const message = document.getElementById('messageContent').value.trim();
